@@ -9,7 +9,8 @@ as automatically backing up files in one S3 bucket to another on a schedule.
 1. Add the following Bucket Policy to the Source S3 Bucket, replacing the necessary
 names in brackets.
 
-`{
+```
+{
     "Version": "2012-10-17",
     "Id": "Policy1546558291129",
     "Statement": [
@@ -29,12 +30,14 @@ names in brackets.
             ]
         }
     ]
-}`
+}
+```
 
 2. Add the following Bucket Policy to the Destination S3 Bucket, replacing the necessary
 names in brackets.
 
-`{
+```
+{
     "Version": "2012-10-17",
     "Id": "Policy22222222222",
     "Statement": [
@@ -54,7 +57,8 @@ names in brackets.
             ]
         }
     ]
-}`
+}
+```
 
 
 3. Create a Lambda task with the code given. Uses a Python 3.7 Runtime. Choose a Lambda role with the required permissions.
