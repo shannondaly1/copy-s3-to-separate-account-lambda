@@ -50,7 +50,11 @@ names in brackets.
                     "arn:aws:iam::<account-id>:role/<lambda-role>"
                 ]
             },
-            "Action": "s3:*",
+            "Action": [
+	        "s3:ListBucket",
+                "s3:PutObject",
+                "s3:PutObjectAcl"
+	    ],
             "Resource": [
                 "arn:aws:s3:::<destination-bucket-name>",
                 "arn:aws:s3:::<destination-bucket-name>/*"
@@ -60,6 +64,7 @@ names in brackets.
 }
 ```
 
+If there are Permissions issues, try changing Action to `s3:*` at first (not secure) and then restrict further if needed.
 
 3. Create a Lambda task with the code given. Uses a Python 3.7 Runtime. Choose a Lambda role with the required permissions.
 Input all required options. 
